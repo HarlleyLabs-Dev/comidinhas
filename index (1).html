@@ -1,0 +1,608 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#e8557f"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg"><title>Comidinhas da minha princesa</title>
+<style>
+:root{--bg:#fff7f9;--card:#fff;--tx:#2b2230;--mut:#7b6f80;--line:#f0dde4;--acc:#e8557f;--acc2:#ff8fab;--p:#4f8cff;--c:#f5a524;--f:#2fbf8f;--sh:0 6px 24px rgba(232,85,127,.12);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17121a;--card:#221b27;--tx:#f4eaf3;--mut:#a899ad;--line:#362b3d;--sh:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17121a;--card:#221b27;--tx:#f4eaf3;--mut:#a899ad;--line:#362b3d;--sh:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.w{max-width:880px;margin:0 auto;padding:0 16px}
+.hero{padding:34px 0 18px;text-align:center}
+.hero h1{margin:0;font:800 clamp(28px,7vw,46px)/1.1 Georgia,serif;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--acc));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200%}}
+.hero p{color:var(--mut);margin:8px auto 0;max-width:560px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);padding:10px 0;border-bottom:1px solid var(--line)}
+.bar .r{display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.trk{height:10px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:6px}
+.fill{height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--acc2),var(--acc));transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.fill.over{background:#e5484d}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:16px;margin:16px 0}
+h2{font:700 22px/1.2 Georgia,serif;margin:30px 0 4px}.sub{color:var(--mut);margin:0 0 10px;font-size:14px}
+.big{font:800 54px/1 Georgia,serif;color:var(--acc)}.big small{font:600 16px system-ui;color:var(--mut)}
+.mb{display:flex;height:12px;border-radius:9px;overflow:hidden;background:var(--line);margin:10px 0 6px}
+.mb i{height:100%;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.lg{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut)}.lg b{color:var(--tx)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.p{--k:var(--p)}.c{--k:var(--c)}.f{--k:var(--f)}.dot,.mb .p,.mb .c,.mb .f{background:var(--k)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:14px;padding:9px 4px;font:600 12px system-ui;cursor:pointer;transition:.25s}
+.tab span{display:block;font-size:20px}.tab small{display:block;color:var(--mut);font-weight:500}
+.tab.on{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:var(--sh)}.tab.on small{color:#fff}
+.pn{animation:fi .45s ease}@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.gt{font-weight:700;margin:16px 0 8px;display:flex;justify-content:space-between;align-items:baseline}.gt small{color:var(--mut);font-weight:500}
+.ops{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.op{text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--tx);border-radius:14px;padding:10px 12px;cursor:pointer;font:inherit;font-size:14px;transition:.2s;display:flex;flex-direction:column;gap:4px}
+.op:hover{transform:translateY(-2px);border-color:var(--acc2)}
+.op.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 9%,var(--card))}
+.k{font-weight:700;color:var(--acc);font-size:13px}.mc{display:flex;gap:6px;font-size:11px;font-style:normal;color:var(--mut)}.mc i{font-style:normal;border-left:3px solid var(--k);padding-left:4px}
+.bd{margin-top:8px;font-size:13px;border-radius:12px;background:color-mix(in srgb,var(--acc) 6%,var(--card));padding:6px 10px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:5px 0;border-bottom:1px dashed var(--line)}.row:last-child{border:0}
+.row em{font-style:normal;color:var(--mut);font-size:12px;grid-column:1/-1}.row b{white-space:nowrap}
+.tot{display:flex;justify-content:space-between;font-weight:700;margin-top:14px;padding-top:10px;border-top:2px solid var(--line)}
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.gl div{border-radius:14px;padding:12px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--k);font-size:14px}
+.gl b{display:block}.gl div:first-child{--k:var(--acc)}
+details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:8px 0;padding:10px 14px}summary{cursor:pointer;font-weight:600}
+details p,details ul{margin:8px 0 0;font-size:14px;color:var(--mut)}details ul{padding-left:18px}
+.tw{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}th,td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}th{color:var(--mut);position:sticky;top:0;background:var(--card)}
+input{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit;margin:6px 0 10px}
+.ok{color:var(--f)}.tag{font-size:11px;color:var(--mut)}.btn.s{background:var(--line);color:var(--tx)}.chip{border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:20px;padding:6px 11px;font:inherit;font-size:13px;cursor:pointer;transition:.2s}.chip:hover{border-color:var(--acc2);transform:translateY(-1px)}
+select{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit;margin:6px 0 10px}
+.btn{border:0;border-radius:12px;padding:11px 16px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font:600 15px system-ui;cursor:pointer;transition:transform .2s,box-shadow .2s}.btn:hover{box-shadow:var(--sh)}.btn:active{transform:scale(.97)}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0 8px}.fg label,label.sub{display:block;font-size:12px;color:var(--mut)}
+.x{border:0;background:none;color:var(--mut);cursor:pointer;font-size:16px;padding:0 4px}.x:hover{color:#e5484d}
+#dr{margin:4px 0 10px}#dl .row{animation:fi .35s ease}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+footer{color:var(--mut);font-size:13px;padding:10px 0 40px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+[hidden]{display:none!important}#upd{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--acc);border-radius:16px;padding:10px 14px;box-shadow:var(--sh);font-size:14px}.nt{border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:8px 0;background:var(--card)}.nt small{color:var(--mut)}.sw{width:34px;height:34px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line);cursor:pointer}textarea.z{width:100%;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);padding:10px;font:inherit}</style></head><body>
+<div class="bar"><div class="w"><div class="r"><span>Seu dia</span><span><b id="bk">0</b> / <span id="mt">1.500</span> kcal</span></div><div class="trk"><div class="fill" id="bf"></div></div></div></div>
+<div class="w">
+<header class="hero"><div style="font-size:44px" id="zhe">🍓</div><h1 id="zhn">Comidinhas da minha princesa</h1><p>Guia de refeições, porções, nutrientes, trocas e receitas: 4 refeições por dia, com um teto de calorias que você ajusta e comida de verdade para ficar satisfeita.</p></header>
+
+<section class="card rv"><div class="big"><span id="tk">0</span> <small>kcal no dia</small></div>
+<div class="mb"><i class="p" id="mp"></i><i class="c" id="mc"></i><i class="f" id="mf"></i></div>
+<div class="lg"><span><i class="dot p"></i>Proteínas <b id="tp"></b></span><span><i class="dot c"></i>Carboidratos <b id="tc"></b></span><span><i class="dot f"></i>Gorduras <b id="tf"></b></span></div>
+<p class="sub" id="room" style="margin-top:10px"></p></section>
+<section class="card rv"><div class="fg"><div><label for="meta">Meta diária (kcal)</label><input id="meta" type="number" inputmode="numeric" min="800" max="4000" step="50"></div><div><label>Água de hoje</label><div style="display:flex;align-items:center;gap:8px;margin:6px 0 10px"><button class="btn s" id="wm" type="button" aria-label="Menos um copo">−</button><b id="wv">0</b><span class="sub" style="margin:0">copos (250 ml)</span><button class="btn s" id="wp" type="button" aria-label="Mais um copo">+</button></div></div></div><button class="btn" id="rnd" type="button">🎲 Sugerir um cardápio dentro da meta</button><p class="sub" id="rmsg" style="margin-top:8px"></p></section>
+
+<h2 class="rv">Monte seu dia</h2><p class="sub rv">Escolha uma opção por quadro: é sempre um OU outro, nunca os dois. Os totais acima mudam na hora.</p>
+<div class="tabs" id="tabs"></div><div class="card" id="pn"></div>
+
+<h2 class="rv">Para completar sem passar vontade</h2><p class="sub rv">Bateu fome entre as refeições? Escolha um extra por vez, enquanto couber no teto.</p>
+<div class="card rv"><div class="ops" id="ex"></div></div>
+
+<h2 class="rv">Seu dia, item por item</h2><div class="card rv" id="day"></div><div class="rv" style="text-align:center"><button class="btn" id="ptd" type="button">➕ Usar este cardápio no diário</button> <button class="btn s" id="cpy" type="button">📋 Copiar cardápio</button><p class="sub" id="pmsg"></p></div>
+
+<h2 class="rv">Diário: o que eu comi</h2><p class="sub rv">Registre o que comeu de verdade, esteja ou não no cardápio, em qualquer refeição ou entre elas. <span id="dnote"></span></p>
+<div class="card rv"><div class="fg"><div><label for="dd">Dia</label><input id="dd" type="date"></div><div><label for="dm">Refeição</label><select id="dm"></select></div></div>
+<label class="sub" for="ds">Buscar alimento</label><input id="ds" placeholder="Ex.: frango, banana, queijo…" autocomplete="off"><div id="rec" style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px"></div><div class="ops" id="dr"></div>
+<div id="dsel" hidden class="bd"><b id="dn"></b><div class="fg"><div><label for="dg">Quantidade (g)</label><input id="dg" type="number" inputmode="decimal" min="0"></div></div><p id="dp" class="sub"></p><button class="btn" id="da">Adicionar ao diário</button></div>
+<div id="dl" style="margin-top:14px"></div><b style="display:block;margin-top:18px">Últimos 7 dias</b><div id="wk"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn s" id="bkp" type="button">⬇️ Baixar backup</button><label class="btn s" for="bfile" style="display:inline-block">⬆️ Restaurar backup</label><input id="bfile" type="file" accept=".json,application/json" hidden></div>
+<p class="sub" id="dsync" style="margin:8px 0 0"></p><p class="sub" id="bmsg" style="margin:2px 0 0"></p>
+<details style="margin-top:8px"><summary>Backup em texto (copiar e colar)</summary><textarea id="btx" rows="4" style="width:100%;margin-top:8px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);padding:8px;font:12px monospace"></textarea><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn s" id="bgen" type="button">Gerar texto</button><button class="btn s" id="brest" type="button">Restaurar do texto</button></div></details></div>
+<details class="rv"><summary>Não achou o alimento? Cadastre um novo</summary><div style="margin-top:10px"><label class="sub" for="nn">Nome</label><input id="nn" placeholder="Ex.: Pão de queijo da padaria">
+<div class="fg"><div><label for="nt">Os valores são</label><select id="nt"><option value="0">por 100 g</option><option value="1">por porção</option></select></div><div><label for="ng">Peso da porção (g)</label><input id="ng" type="number" inputmode="decimal" min="0"></div></div>
+<div class="fg"><div><label for="nk">kcal</label><input id="nk" type="number" inputmode="decimal" min="0"></div><div><label for="np">Proteínas (g)</label><input id="np" type="number" inputmode="decimal" min="0"></div><div><label for="nc">Carboidratos (g)</label><input id="nc" type="number" inputmode="decimal" min="0"></div><div><label for="nf">Gorduras (g)</label><input id="nf" type="number" inputmode="decimal" min="0"></div></div>
+<button class="btn" id="nsv">Salvar alimento</button><p class="sub" id="nm2"></p><b>Meus alimentos</b><div id="ml"></div></div></details>
+<h2 class="rv">📌 Mural</h2><p class="sub rv">Recados e mudanças do dia: o que comeu diferente, trocas, o que gostou.</p>
+<div class="card rv"><div id="ztags" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"></div><textarea class="z" id="ztx" rows="3" placeholder="Ex.: hoje comi só meio pão no café"></textarea><button class="btn" id="zadd" type="button" style="margin-top:8px">Colocar no mural</button><div id="zml" style="margin-top:12px"></div></div>
+<h2 class="rv">🎨 Personalizar</h2>
+<div class="card rv"><label class="sub" for="zn">Título</label><input id="zn" maxlength="40"><div class="fg"><div><label for="ze">Emoji</label><input id="ze" maxlength="4"></div><div><label for="zt">Tema</label><select id="zt"><option value="auto">Automático</option><option value="light">Claro</option><option value="dark">Escuro</option></select></div></div><label class="sub">Cor</label><div id="zsw" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"></div></div>
+<div class="card rv"><b>Atualizações</b><p class="sub" id="zv" style="margin:4px 0 8px"></p><button class="btn s" id="zck" type="button">🔄 Verificar atualização</button><p class="sub" id="zum"></p></div>
+<h2 class="rv">O que significam essas palavras?</h2>
+<div class="gl rv"><div><b>Energia (kcal)</b>É o combustível do corpo, como a bateria do celular: dá força para o dia.</div><div class="p"><b>Proteínas</b>Tijolinhos do corpo: músculos, cabelo e unhas. Frango, ovo, peixe, iogurte. Dão saciedade.</div><div class="c"><b>Carboidratos</b>Energia rápida: arroz, pão, batata, mandioca e frutas.</div><div class="f"><b>Gorduras</b>Energia de reserva; ajudam a absorver vitaminas. Azeite, ovo, chia.</div></div>
+
+<h2 class="rv">Receitas rápidas</h2><p class="sub rv">Todas para 1 porção e sem óleo, manteiga ou creme, para a conta de energia ficar certa.</p>
+<div id="rc" class="rv"></div>
+
+<h2 class="rv">Tabela de referência (por porção)</h2><p class="sub rv">Cada linha mostra uma porção usual, com a medida e o peso em gramas (por exemplo, 1 pão francês = 50 g = 150 kcal), igual ao que aparece nas refeições. Se quiser a base da TACO, troque para “por 100 g”. Alimento já preparado, exceto onde indicado como cru.</p>
+<select id="qg" aria-label="Filtrar por grupo"></select><select id="qm" aria-label="Tipo de valores"><option value="p">Valores por porção</option><option value="c">Valores por 100 g</option></select><input id="q" placeholder="Buscar alimento…" aria-label="Buscar alimento"><div class="tw"><table><thead><tr><th>Alimento</th><th>Porção</th><th>kcal</th><th>Prot.</th><th>Carb.</th><th>Gord.</th><th>Fonte</th><th>Conf.</th></tr></thead><tbody id="tb"></tbody></table></div>
+
+<h2 class="rv">Como os números foram conferidos</h2>
+<div class="card rv"><ul style="margin:0;padding-left:18px;font-size:14px">
+<li>Cada porção = valor por 100 g × peso da porção, calculado automaticamente; os totais somam os valores sem arredondar e só então arredondam, então uma linha pode diferir em 1 kcal.</li>
+<li>Fonte principal: TACO (UNICAMP), a tabela brasileira de composição de alimentos. Itens marcados “Compl.” (chia, ervilha seca, grão-de-bico, tilápia, vinagrete, cebola e alho) usam tabelas e rótulos complementares, pois a TACO não traz o alimento nessa forma. Itens “Aprox.” (pratos prontos, refogados, polpas e alguns outros) são estimativas: use como referência.</li><li>Os valores foram digitados com base na TACO e conferidos pela coerência da energia, mas não foram copiados direto da publicação. Quando precisar de precisão, confirme na tabela completa.</li>
+<li>Conferência cruzada: a energia de cada alimento foi comparada com a estimada pelos macros (4 kcal/g de proteína e carboidrato, 9 kcal/g de gordura). <b class="ok" id="chk"></b> Pequenas diferenças vêm das fibras, que rendem menos energia, e do álcool nas bebidas.</li>
+<li>A tabela de referência reúne <b id="cnt"></b> alimentos comuns, com valores por 100 g (TACO 4ª edição e aproximações indicadas), para consultar mesmo o que não está nas refeições. Os valores da tabela aparecem por porção usual; as porções são medidas caseiras aproximadas. A busca aceita nome ou grupo (frutas, carnes, laticínios…). Para um alimento que não aparece, consulte a TACO completa (NEPA/UNICAMP), por exemplo em <a href="https://www.tabelatacoonline.com.br" target="_blank" rel="noopener">tabelatacoonline.com.br</a>.</li><li>Marcas, tamanhos e modos de preparo mudam os números: variações de 5% a 10% são normais. A batata-doce cozida, por exemplo, varia de 76 a 90 kcal por 100 g.</li>
+<li>Todas as combinações do guia somam entre <b id="mn"></b> e <b id="mx"></b> kcal por dia. O contador do topo avisa quando uma combinação passa da sua meta diária.</li></ul></div>
+
+<h2 class="rv">Dicas para ficar satisfeita</h2>
+<div class="gl rv"><div><b>Comece pela salada</b>Verduras e legumes têm muita água e fibra: enchem o prato com poucas calorias.</div><div class="p"><b>Proteína em toda refeição</b>Ovo, frango, peixe ou iogurte seguram a fome por mais tempo.</div><div class="c"><b>Mastigue devagar</b>A saciedade leva cerca de 20 minutos para chegar ao cérebro.</div><div class="f"><b>Água ao longo do dia</b>Sede às vezes parece fome. Tenha sempre uma garrafinha por perto.</div></div>
+<footer>Nota de cuidado: os valores nutricionais são estimativas e servem apenas como referência das refeições descritas. As necessidades variam conforme a pessoa e a rotina. Para mudanças na alimentação ou no peso, procure orientação de nutricionista ou profissional de saúde.</footer>
+</div>
+<script>
+const DB={pao:["Pão francês",300,8,58.6,3.1,"T"],paoint:["Pão integral",253,9.4,49.9,3.7,"T"],aveia:["Aveia em flocos",394,13.9,66.6,8.5,"T"],cusc:["Cuscuz de milho cozido",113,2.2,25.3,.7,"T"],mand:["Mandioca cozida",125,.6,30.1,.3,"T"],bdoce:["Batata-doce cozida",76,1.4,17.7,.1,"T"],ovo:["Ovo de galinha cozido",146,13.3,.6,9.5,"T"],azeite:["Azeite de oliva",884,0,0,100,"T"],suco:["Suco de laranja natural",37,.7,8.7,0,"T"],acucar:["Açúcar",387,0,100,0,"T"],iog:["Iogurte natural desnatado",41,3.8,5.8,.3,"T"],ricota:["Queijo ricota",140,12.6,3.8,8.1,"T"],chia:["Semente de chia",486,16.5,42.1,30.7,"C"],laranja:["Laranja",47,.9,11.8,.1,"T"],banana:["Banana-prata",98,1.3,26,.1,"T"],mamao:["Mamão papaia",40,.5,10.4,.1,"T"],abacaxi:["Abacaxi",48,.9,12.3,.1,"T"],pera:["Pera",53,.6,14,.1,"T"],tang:["Tangerina",38,.8,9.6,.1,"T"],morango:["Morango cru",30,.9,6.8,.3,"T"],frango:["Peito de frango sem pele, grelhado",159,32,0,2.5,"T"],peixe:["Filé de peixe branco grelhado",130,27.6,0,1.3,"T"],tilapia:["Tilápia grelhada",128,26.2,0,2.7,"C"],patinho:["Patinho grelhado",219,35.9,0,7.3,"T"],frangoc:["Peito de frango sem pele, cozido",163,31.5,0,3.2,"T"],salmao:["Salmão sem pele, grelhado",243,26.1,0,14.5,"T"],minas:["Queijo minas frescal",264,17.4,3.2,20.2,"T"],arroz:["Arroz branco cozido",128,2.5,28.1,.2,"T"],arrozint:["Arroz integral cozido",124,2.6,25.8,1,"T"],bing:["Batata inglesa cozida",52,1.2,11.9,0,"T"],mandq:["Mandioquinha cozida",80,.9,18.9,.2,"T"],milho:["Milho verde drenado",98,3.2,17.1,2.4,"T"],macarrao:["Macarrão de trigo, cru",371,10.3,76.6,2,"T"],inhame:["Inhame cozido",97,2.1,23.2,.1,"T"],cabotia:["Abóbora cabotiá cozida",48,1.4,10.8,.7,"T"],feijao:["Feijão carioca cozido",76,4.8,13.6,.5,"T"],fpreto:["Feijão preto cozido",77,4.5,14,.5,"T"],lent:["Lentilha cozida",93,6.3,16.3,.5,"T"],grao:["Grão-de-bico cozido",164,8.9,27.4,2.6,"C"],ervilha:["Ervilha seca partida, crua",341,24.6,60.4,1.2,"C"],cebal:["Cebola e alho",80,3,18,.1,"C"],salada:["Salada de alface e tomate",15,1.3,3,.2,"T"],vinag:["Vinagrete sem óleo",20,.9,4.3,.2,"C"],leg:["Legumes cozidos (cenoura, brócolis, abobrinha)",24,1.3,4.9,.3,"T"],broc:["Brócolis cozido",25,2.1,4.4,.5,"T"],abob:["Abobrinha italiana cozida",15,1.1,3,.2,"T"],cen:["Cenoura cozida",30,.8,6.7,.2,"T"],chuchu:["Chuchu cozido",19,.4,4.8,0,"T"],beter:["Beterraba cozida",32,1.3,7.2,.1,"T"],pqueijo:["Pão de queijo",363,5.1,34.2,24.6,"T"],bolo:["Bolo simples",313,5.4,55,7.6,"T"],omelete:["Omelete simples",154,10.9,.7,12,"C"],feijoada:["Feijoada",140,8,8.8,7.7,"C"],estrog:["Estrogonofe de frango",145,14,3.4,8.2,"C"],sugo:["Macarrão ao molho de tomate",120,3.8,21,2.2,"C"],pure:["Purê de batata",83,1.9,12.7,2.9,"C"],canja:["Canja de galinha",62,4.2,7,1.7,"C"],sopa:["Sopa de legumes",38,1.5,6.4,.8,"C"]};
+const O=(l,...c)=>[l,c];const P=(t,o)=>{const a=[t,o];a.pr=1;return a};let META=1500;
+const M=[
+{n:"Café da manhã",e:"🥐",g:[P("Café pronto (opcional)",[O("Montar meu café (use as opções abaixo)"),O("Pão de queijo, 2 un. (60 g) + 170 g de iogurte + 1 banana-prata",["pqueijo",60],["iog",170],["banana",100]),O("Omelete (110 g) + 2 fatias de pão integral + 1 laranja",["omelete",110],["paoint",50],["laranja",150]),O("Bolo simples (60 g) + 1 ovo cozido + mamão, 150 g",["bolo",60],["ovo",50],["mamao",150]),O("Cuscuz 130 g + 1 ovo cozido + 1 laranja",["cusc",130],["ovo",50],["laranja",150]),O("Aveia 30 g + 1 banana + 12 g de chia + 170 g de iogurte",["aveia",30],["banana",100],["chia",12],["iog",170])]),["Pão ou base",[O("1 pão francês",["pao",50]),O("Cuscuz de milho, 130 g",["cusc",130]),O("Mandioca cozida, 120 g",["mand",120]),O("Batata-doce cozida, 200 g",["bdoce",200]),O("2 fatias de pão integral",["paoint",50]),O("Aveia em flocos, 30 g",["aveia",30]),O("Sem pão ou base (já está no café pronto)")]],
+["Proteína",[O("2 ovos + 1 colher de chá de azeite",["ovo",100],["azeite",4.5]),O("2 ovos cozidos",["ovo",100]),O("1 ovo cozido + 170 g de iogurte desnatado",["ovo",50],["iog",170]),O("1 ovo cozido + 40 g de ricota",["ovo",50],["ricota",40]),O("2 ovos cozidos + 170 g de iogurte desnatado",["ovo",100],["iog",170]),O("2 ovos + 40 g de ricota (omelete)",["ovo",100],["ricota",40]),O("1 ovo cozido + 40 g de queijo minas frescal",["ovo",50],["minas",40]),O("Sem proteína (já está no café pronto)")]],
+["Fruta ou bebida",[O("150 ml de suco de laranja + 1 colher de chá de açúcar",["suco",150],["acucar",4]),O("1 laranja média",["laranja",150]),O("1 banana-prata",["banana",100]),O("Morangos, 150 g",["morango",150]),O("Mamão, 150 g",["mamao",150]),O("Abacaxi, 150 g",["abacaxi",150]),O("1 pera média",["pera",130]),O("Sem fruta ou bebida (já está no café pronto)")]]]},
+{n:"Almoço",e:"🍛",g:[P("Prato pronto (opcional)",[O("Montar meu prato (use as opções abaixo)"),O("Arroz e feijão com frango: arroz 75 g + feijão 100 g + 130 g de frango grelhado",["arroz",75],["feijao",100],["frango",130]),O("Arroz e feijão com 2 ovos: arroz 75 g + feijão 100 g",["arroz",75],["feijao",100],["ovo",100]),O("Arroz e feijão com patinho: arroz 75 g + feijão 100 g + 90 g de patinho",["arroz",75],["feijao",100],["patinho",90]),O("Arroz integral 80 g + feijão preto 100 g + 150 g de peixe grelhado",["arrozint",80],["fpreto",100],["peixe",150]),O("Feijoada, 200 g + arroz branco, 60 g",["feijoada",200],["arroz",60]),O("Estrogonofe de frango, 150 g + arroz branco, 60 g",["estrog",150],["arroz",60]),O("Macarrão ao molho de tomate, 200 g + 100 g de frango grelhado",["sugo",200],["frango",100]),O("Omelete, 150 g + arroz 75 g + feijão 80 g",["omelete",150],["arroz",75],["feijao",80]),O("Canja de galinha, 350 g",["canja",350])]),["Proteína",[O("130 g de frango grelhado",["frango",130]),O("150 g de filé de peixe branco grelhado",["peixe",150]),O("130 g de tilápia grelhada",["tilapia",130]),O("90 g de patinho grelhado",["patinho",90]),O("2 ovos cozidos",["ovo",100]),O("130 g de frango cozido desfiado",["frangoc",130]),O("160 g de frango grelhado",["frango",160]),O("100 g de salmão grelhado",["salmao",100]),O("120 g de patinho grelhado",["patinho",120]),O("100 g de frango grelhado + 1 ovo cozido",["frango",100],["ovo",50]),O("Sem proteína (já está no prato pronto)")]],
+["Arroz ou acompanhamento",[O("Arroz branco, 75 g",["arroz",75]),O("Arroz integral, 80 g",["arrozint",80]),O("Batata inglesa cozida, 180 g",["bing",180]),O("Mandioca cozida, 75 g",["mand",75]),O("Mandioquinha cozida, 120 g",["mandq",120]),O("Milho verde, 100 g",["milho",100]),O("Cuscuz de milho cozido, 85 g",["cusc",85]),O("Macarrão, 26 g (cru)",["macarrao",26]),O("Batata-doce cozida, 125 g",["bdoce",125]),O("Inhame cozido, 100 g",["inhame",100]),O("Sem acompanhamento (já está no prato pronto)")]],
+["Leguminosa",[O("Feijão carioca, 100 g",["feijao",100]),O("Lentilha cozida, 80 g",["lent",80]),O("Feijão preto, 100 g",["fpreto",100]),O("Grão-de-bico cozido, 50 g",["grao",50]),O("Sem leguminosa (já está no prato pronto)")]],
+["Salada (sempre)",[O("Salada 50 g + vinagrete sem óleo 30 g",["salada",50],["vinag",30]),O("Salada à vontade 150 g + vinagrete 30 g",["salada",150],["vinag",30])]],
+["Legume extra (opcional)",[O("Sem legume extra"),O("Brócolis cozido, 100 g",["broc",100]),O("Abobrinha cozida, 100 g",["abob",100]),O("Cenoura cozida, 100 g",["cen",100]),O("Chuchu cozido, 100 g",["chuchu",100]),O("Beterraba cozida, 100 g",["beter",100])]]]},
+{n:"Lanche da tarde",e:"🍓",g:[["Escolha um lanche",[O("170 g de iogurte + 12 g de chia + 150 g de morangos",["iog",170],["chia",12],["morango",150]),O("1 banana-prata + 12 g de chia",["banana",100],["chia",12]),O("250 g de morangos + 150 g de iogurte",["morango",250],["iog",150]),O("1 ovo cozido + 1 laranja (150 g)",["ovo",50],["laranja",150]),O("170 g de iogurte + 1 pera",["iog",170],["pera",130]),O("40 g de ricota + 250 g de morangos",["ricota",40],["morango",250]),O("25 g de pão integral + 40 g de ricota + 1 tangerina",["paoint",25],["ricota",40],["tang",100]),O("Mamão 150 g + 20 g de aveia",["mamao",150],["aveia",20]),O("Pão de queijo, 2 un. (50 g) + 1 pera",["pqueijo",50],["pera",130]),O("Bolo simples, 50 g + 1 laranja",["bolo",50],["laranja",150]),O("Omelete pequeno, 100 g + 1 tangerina",["omelete",100],["tang",100])]]]},
+{n:"Jantar",e:"🌙",g:[P("Prato pronto (opcional)",[O("Montar meu jantar (use as opções abaixo)"),O("Canja de galinha, 350 g + 1 ovo cozido",["canja",350],["ovo",50]),O("Sopa de legumes, 350 g + 100 g de frango grelhado",["sopa",350],["frango",100]),O("Omelete, 150 g + legumes cozidos 100 g + batata-doce 100 g",["omelete",150],["leg",100],["bdoce",100]),O("Arroz 60 g + feijão 80 g + 100 g de frango grelhado",["arroz",60],["feijao",80],["frango",100]),O("Purê de batata, 150 g + 100 g de frango grelhado + brócolis 100 g",["pure",150],["frango",100],["broc",100])]),["Proteína principal",[O("100 g de frango grelhado",["frango",100]),O("120 g de filé de peixe branco grelhado",["peixe",120]),O("120 g de tilápia grelhada",["tilapia",120]),O("75 g de patinho grelhado",["patinho",75]),O("130 g de frango grelhado",["frango",130]),O("150 g de filé de peixe branco grelhado",["peixe",150]),O("80 g de salmão grelhado",["salmao",80]),O("100 g de patinho grelhado",["patinho",100]),O("Sem proteína principal (já está no prato pronto)")]],
+["Proteína extra",[O("1 ovo cozido",["ovo",50]),O("40 g de ricota",["ricota",40]),O("2 ovos cozidos",["ovo",100]),O("40 g de queijo minas frescal",["minas",40]),O("170 g de iogurte desnatado",["iog",170]),O("Sem proteína extra")]],
+["Acompanhamento",[O("Batata-doce cozida, 100 g",["bdoce",100]),O("Abóbora cabotiá cozida, 180 g",["cabotia",180]),O("Sopa de ervilha (25 g de ervilha seca)",["ervilha",25],["cebal",10]),O("Mandioquinha cozida, 110 g",["mandq",110]),O("Batata inglesa cozida, 165 g",["bing",165]),O("Inhame cozido, 90 g",["inhame",90]),O("Sem acompanhamento (já está no prato pronto)")]],
+["Legumes",[O("Legumes cozidos, 100 g",["leg",100]),O("Legumes cozidos 100 g + brócolis 100 g",["leg",100],["broc",100]),O("Legumes cozidos 100 g + abobrinha 100 g",["leg",100],["abob",100]),O("Sem legumes (já estão no prato pronto)")]]]}];
+const EX=[O("Morangos, 200 g",["morango",200]),O("2 ovos cozidos",["ovo",100]),O("1 banana-prata",["banana",100]),O("1 ovo cozido",["ovo",50]),O("170 g de iogurte desnatado",["iog",170]),O("Brócolis cozido, 100 g",["broc",100]),O("Salada de alface e tomate, 150 g",["salada",150]),O("1 pera média",["pera",130]),O("Mamão, 150 g",["mamao",150]),O("Pão de queijo, 1 un. (25 g)",["pqueijo",25]),O("Bolo simples, 40 g",["bolo",40])];
+const RC=[["Frango grelhado com ervas","130 g de peito de frango, limão, alho, sal, orégano e pimenta.","Tempere e descanse 15 min. Grelhe em frigideira antiaderente quente, sem óleo, 5 a 6 min de cada lado. No jantar, use 100 g."],["Peixe branco com limão","150 g de filé, limão, sal, salsinha e pimenta.","Seque o filé, tempere e grelhe sem óleo 3 a 4 min de cada lado, até lascar com o garfo."],["Purê de abóbora cabotiá","180 g de abóbora sem casca, 1 dente de alho, sal e salsinha.","Cozinhe em cubos por 12 a 15 min, escorra e amasse com o alho. Tempere."],["Sopa de ervilha","25 g de ervilha seca, 300 ml de água, cebola, alho, sal e cheiro-verde.","Cozinhe 35 a 40 min (pressão: 15 min), até desmanchar. Bata parte no liquidificador para ficar cremosa."],["Legumes no vapor","40 g de cenoura, 30 g de brócolis, 30 g de abobrinha, limão e salsinha.","Vapor por 6 a 8 min: macios e coloridos. Tempere com sal e limão."],["Cuscuz fofinho","27 g de flocão de milho, 3 colheres de sopa de água, sal.","Misture, descanse 5 min e cozinhe no vapor 8 a 10 min. Rende cerca de 85 g."],["Lentilha temperada","80 g de lentilha cozida, alho, cebola, louro e sal.","Cozinhe 20 a 25 min. Refogue cebola e alho em 1 colher de água e misture; apure 3 min."],["Vinagrete sem óleo","Tomate, cebola e pimentão miudinhos, vinagre ou limão, sal e cheiro-verde.","Misture e descanse 10 min para pegar sabor."]];
+const fm=(n,d=0)=>n.toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const mac=(k,g)=>DB[k].slice(1,5).map(v=>v*g/100);
+const add=(a,b)=>a.map((v,i)=>v+b[i]);const Z=()=>[0,0,0,0];
+const oT=o=>o[1].reduce((s,[k,g])=>add(s,mac(k,g)),Z());
+const sel=M.map(m=>m.g.map(()=>0));let tab=0,xi=-1;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function num(el,to,d=0){const from=+el.dataset.v||0;el.dataset.v=to;if(rm){el.textContent=fm(to,d);return}const t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/600),e=1-Math.pow(1-k,3);el.textContent=fm(from+(to-from)*e,d);if(k<1)requestAnimationFrame(s)})(t0)}
+const chips=m=>`<span class="mc"><i class="p">P ${fm(m[1],1)}</i><i class="c">C ${fm(m[2],1)}</i><i class="f">G ${fm(m[3],1)}</i></span>`;
+const rows=o=>o[1].length?o[1].map(([k,g])=>{const m=mac(k,g);return`<div class="row"><span>${DB[k][0]}</span><b>${fm(m[0])} kcal</b><em>${fm(g)} g · P ${fm(m[1],1)} · C ${fm(m[2],1)} · G ${fm(m[3],1)}</em></div>`}).join(""):"";
+function mealT(i){return M[i].g.reduce((s,g,j)=>add(s,oT(g[1][sel[i][j]])),Z())}
+function render(){
+ $("#mt").textContent=fm(META);
+ const mt=M.map((_,i)=>mealT(i));let day=mt.reduce(add,Z());if(xi>=0)day=add(day,oT([0,EX[xi][1]]));
+ $("#tabs").innerHTML=M.map((m,i)=>`<button class="tab ${i==tab?"on":""}" data-t="${i}"><span>${m.e}</span>${m.n.split(" ")[0]}<small>${fm(mt[i][0])} kcal</small></button>`).join("");
+ const m=M[tab];$("#pn").className="card pn";void $("#pn").offsetWidth;
+ $("#pn").innerHTML=`<b style="font-size:18px">${m.n}</b>`+m.g.map((g,j)=>{const cur=g[1][sel[tab][j]];const lo=Math.min(...g[1].map(o=>oT(o)[0])),hi=Math.max(...g[1].map(o=>oT(o)[0]));
+  return`<div class="gt">${g[0]}<small>${fm(lo)} a ${fm(hi)} kcal</small></div><div class="ops">${g[1].map((o,k)=>{const t=oT(o);return`<button class="op ${k==sel[tab][j]?"on":""}" data-g="${j}" data-o="${k}"><span>${o[0]}</span><span class="k">${fm(t[0])} kcal</span>${chips(t)}</button>`}).join("")}</div><div class="bd">${rows(cur)||'<div class="row"><span>Nada nesta parte</span><b>0 kcal</b></div>'}</div>`}).join("")+
+  `<div class="tot"><span>Total da refeição</span><span>${fm(mt[tab][0])} kcal · P ${fm(mt[tab][1],1)} · C ${fm(mt[tab][2],1)} · G ${fm(mt[tab][3],1)}</span></div>`;
+ $("#ex").innerHTML=EX.map((o,k)=>{const t=oT(o);return`<button class="op ${k==xi?"on":""}" data-x="${k}"><span>${o[0]}</span><span class="k">+${fm(t[0])} kcal</span>${chips(t)}</button>`}).join("");
+ $("#day").innerHTML=M.map((mm,i)=>`<b>${mm.e} ${mm.n}</b>`+mm.g.map((g,j)=>rows(g[1][sel[i][j]])).join("")+`<div class="tot" style="margin:6px 0 14px"><span>Subtotal</span><span>${fm(mt[i][0])} kcal</span></div>`).join("")+(xi>=0?`<b>➕ Extra</b>${rows([0,EX[xi][1]])}`:"")+`<div class="tot"><span>Total do dia</span><span>${fm(day[0])} kcal · P ${fm(day[1],1)} · C ${fm(day[2],1)} · G ${fm(day[3],1)}</span></div>`;
+ const kc=day[0],e=[day[1]*4,day[2]*4,day[3]*9],s=e[0]+e[1]+e[2]||1;
+ num($("#tk"),kc);num($("#bk"),kc);$("#bf").style.width=Math.min(100,kc/META*100)+"%";$("#bf").classList.toggle("over",kc>META);
+ ["p","c","f"].forEach((x,i)=>{$("#m"+x).style.width=e[i]/s*100+"%";$("#t"+x).textContent=fm(day[i+1],1)+" g ("+fm(e[i]/s*100)+"%)"});
+ $("#room").textContent=kc>META?"Passou da sua meta de "+fm(META)+" kcal: troque algo por uma opção mais leve.":"Ainda cabem até "+fm(META-kc)+" kcal até a meta de "+fm(META)+" kcal.";
+}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.t!=null)tab=+b.dataset.t;else if(b.dataset.g!=null){const j=+b.dataset.g,k=+b.dataset.o,gg=M[tab].g[j];sel[tab][j]=k;if(gg.pr)M[tab].g.forEach((h,i)=>{if(i==j)return;const em=h[1].findIndex(o=>!o[1].length);sel[tab][i]=k>0?(em>=0?em:sel[tab][i]):0})}else if(b.dataset.x!=null)xi=xi==+b.dataset.x?-1:+b.dataset.x;else return;render()});
+$("#rc").innerHTML=RC.map(r=>`<details><summary>${r[0]}</summary><ul><li><b>Ingredientes:</b> ${r[1]}</li><li><b>Modo de fazer:</b> ${r[2]}</li></ul></details>`).join("");
+let ok=0;const TX=`Cereais e pães|Arroz parboilizado cozido|123|2.6|26.7|0.4
+Cereais e pães|Farinha de mandioca crua|361|1.6|87.9|0.3
+Cereais e pães|Farinha de trigo|360|9.8|75.1|1.4
+Cereais e pães|Macarrão de trigo cozido|102|3.4|19.9|0.5
+Verduras e legumes|Agrião cru|17|2.7|2.3|0.2
+Verduras e legumes|Alface crespa crua|11|1.3|1.7|0.2
+Verduras e legumes|Berinjela cozida|19|0.7|4.4|0.1
+Verduras e legumes|Beterraba crua|49|1.9|11.1|0.1
+Verduras e legumes|Brócolis cru|25|3.6|4.4|0.3
+Verduras e legumes|Cebola crua|39|1.7|8.9|0.1
+Verduras e legumes|Cenoura crua|34|1.3|7.7|0.2
+Verduras e legumes|Couve-flor crua|23|1.9|4.5|0.2
+Verduras e legumes|Couve-manteiga crua|27|2.9|4.3|0.5
+Verduras e legumes|Espinafre cru|16|2.0|2.6|0.2
+Verduras e legumes|Pepino cru|10|0.9|2.0|0.1
+Verduras e legumes|Pimentão verde cru|21|1.1|4.9|0.2
+Verduras e legumes|Repolho cru|17|0.9|3.9|0.1
+Verduras e legumes|Tomate cru|15|1.1|3.1|0.2
+Verduras e legumes|Abóbora cabotiá crua|39|1.7|8.4|0.5
+Verduras e legumes|Batata inglesa crua|64|1.8|14.7|0
+Verduras e legumes|Palmito em conserva|23|1.8|4.3|0.5
+Verduras e legumes|Batata frita|267|5.0|35.6|13.1
+Frutas|Abacate|96|1.2|6.0|8.4
+Frutas|Acerola crua|33|0.9|8.0|0.2
+Frutas|Ameixa crua|53|0.8|13.9|0
+Frutas|Banana-nanica|92|1.4|23.8|0.1
+Frutas|Caqui|71|0.4|19.3|0.1
+Frutas|Goiaba vermelha|54|1.1|13.0|0.4
+Frutas|Jabuticaba|58|0.6|15.3|0.1
+Frutas|Kiwi|51|1.3|11.5|0.6
+Frutas|Laranja-pêra|37|1.0|8.9|0.1
+Frutas|Manga Tommy Atkins|51|0.9|12.8|0.2
+Frutas|Maracujá (polpa)|68|2.0|12.3|2.1
+Frutas|Maçã Fuji com casca|56|0.3|15.2|0
+Frutas|Melão|29|0.7|7.5|0
+Frutas|Mamão formosa|45|0.8|11.6|0.1
+Frutas|Melancia|33|0.9|8.1|0
+Frutas|Uva Itália|53|0.7|13.6|0.2
+Frutas|Água de coco|22|0|5.3|0
+Carnes e ovos|Alcatra grelhada|241|31.9|0|11.6
+Carnes e ovos|Contra-filé grelhado|278|32.4|0|15.5
+Carnes e ovos|Filé mignon grelhado|220|32.8|0|8.8
+Carnes e ovos|Carne moída cozida|212|26.7|0|10.9
+Carnes e ovos|Fígado bovino grelhado|225|29.9|4.2|9.0
+Carnes e ovos|Lombo de porco assado|210|35.7|0|6.4
+Carnes e ovos|Frango, coxa sem pele, cozida|167|26.9|0|5.8
+Carnes e ovos|Frango, sobrecoxa sem pele, assada|233|29.2|0|12.0
+Carnes e ovos|Frango inteiro sem pele, assado|187|28.0|0|7.5
+Carnes e ovos|Atum em conserva (óleo)|166|26.2|0|6.0
+Carnes e ovos|Clara de ovo cozida|59|13.4|0|0.1
+Carnes e ovos|Gema de ovo cozida|353|15.9|1.6|30.8
+Carnes e ovos|Ovo frito|240|15.6|1.2|18.6
+Carnes e ovos|Ovo cru|143|13.0|1.6|8.9
+Laticínios|Leite de vaca integral|61|2.9|4.5|3.5
+Laticínios|Leite de vaca desnatado|35|3.4|4.9|0.1
+Laticínios|Iogurte natural integral|51|4.1|1.9|3.0
+Laticínios|Queijo muçarela|330|22.6|3.0|25.2
+Laticínios|Queijo prato|360|22.7|2.3|29.1
+Laticínios|Queijo parmesão|453|35.6|1.7|33.5
+Laticínios|Requeijão cremoso|257|9.6|2.4|23.4
+Laticínios|Manteiga com sal|726|0.4|0.1|82.4
+Laticínios|Margarina com sal|596|0|0.7|65.0
+Oleaginosas|Amendoim torrado salgado|606|22.5|18.7|54.0
+Oleaginosas|Castanha-do-pará|643|14.5|15.1|63.5
+Oleaginosas|Castanha-de-caju torrada|570|18.5|29.1|46.3
+Óleos, doces e bebidas|Óleo de soja|884|0|0|100
+Óleos, doces e bebidas|Mel|309|0|84.0|0
+Óleos, doces e bebidas|Chocolate ao leite|540|7.2|59.6|30.3
+Óleos, doces e bebidas|Chocolate meio amargo|475|4.9|62.4|29.9
+Óleos, doces e bebidas|Goiabada|269|0.4|69.0|0.1
+Óleos, doces e bebidas|Doce de leite|306|5.5|59.5|6.7
+Óleos, doces e bebidas|Refrigerante tipo cola|34|0|8.7|0
+Óleos, doces e bebidas|Café (infusão a 10%)|9|0.7|1.5|0.1
+Cereais e pães|Arroz branco cru|358|7.2|78.8|0.3
+Cereais e pães|Biscoito cream cracker|432|10.1|68.7|14.4
+Cereais e pães|Biscoito maisena|443|8.1|75.2|12.0
+Cereais e pães|Biscoito recheado de chocolate|472|6.4|71.1|17.6
+Cereais e pães|Farinha de milho amarela|351|7.2|79.1|1.5
+Cereais e pães|Polvilho doce|351|0.4|87.2|0.9
+Verduras e legumes|Batata-doce crua|118|1.3|28.2|0.1
+Verduras e legumes|Mandioca crua|151|1.1|36.2|0.2
+Verduras e legumes|Acelga crua|21|1.4|4.6|0.2
+Verduras e legumes|Almeirão cru|18|1.8|3.3|0.2
+Verduras e legumes|Alface lisa crua|14|1.7|2.4|0.1
+Verduras e legumes|Alface americana crua|9|0.6|1.7|0.1
+Verduras e legumes|Alho cru|113|7.0|23.9|0.2
+Verduras e legumes|Rúcula crua|13|1.8|2.2|0.1
+Verduras e legumes|Vagem crua|31|1.8|7.1|0.2
+Verduras e legumes|Quiabo cru|30|1.9|6.4|0.3
+Verduras e legumes|Pimentão vermelho cru|23|1.0|5.5|0.1
+Verduras e legumes|Pimentão amarelo cru|28|1.2|6.0|0.4
+Verduras e legumes|Rabanete cru|14|1.4|2.7|0.1
+Verduras e legumes|Chuchu cru|17|0.7|4.1|0.1
+Verduras e legumes|Couve-flor cozida|19|1.2|3.9|0.3
+Verduras e legumes|Repolho roxo cru|31|1.9|7.2|0.1
+Leguminosas|Feijão carioca cru|329|20.0|61.2|1.3
+Leguminosas|Feijão preto cru|324|21.3|58.8|1.4
+Leguminosas|Lentilha crua|339|23.2|62.0|0.8
+Leguminosas|Ervilha em conserva, drenada|74|4.6|13.4|0.9
+Oleaginosas|Amendoim cru|544|27.2|20.3|43.9
+Frutas|Pêssego aurora|36|0.8|9.3|0
+Frutas|Uva rubi|49|0.6|12.7|0.2
+Frutas|Banana-maçã|87|1.8|22.3|0.1
+Frutas|Goiaba branca|52|0.9|12.4|0.5
+Frutas|Manga Palmer|72|0.4|19.4|0.2
+Frutas|Açaí (polpa)|58|0.8|6.2|3.9
+Carnes e ovos|Coxão mole cozido|219|32.4|0|8.9
+Carnes e ovos|Lagarto cozido|222|32.9|0|9.0
+Carnes e ovos|Merluza, filé cru|89|16.6|0|2.0
+Laticínios|Leite em pó integral|497|25.4|39.2|26.9
+Laticínios|Creme de leite|221|1.5|4.5|22.5
+Laticínios|Leite condensado|313|7.7|56.3|6.7
+Cereais e pães|Arroz integral cru|360|7.3|77.5|1.9
+Cereais e pães|Pão de forma tradicional|253|8.0|44.1|3.1
+Cereais e pães|Biscoito wafer de chocolate|502|5.6|67.5|24.3
+Cereais e pães|Biscoito recheado de morango|471|5.7|80.4|15.6
+Cereais e pães|Bolo de chocolate|410|6.2|54.7|18.5
+Cereais e pães|Farinha de rosca|371|11.4|75.8|1.5
+Cereais e pães|Macarrão instantâneo|436|8.8|62.8|17.2
+Cereais e pães|Milho verde cru|138|6.6|28.6|0.6
+Cereais e pães|Pipoca com óleo de soja|448|9.9|70.3|15.9
+Cereais e pães|Cereal matinal de milho|365|7.2|83.8|0.9
+Cereais e pães|Amido de milho (maisena)|361|0.6|87.1|0.0
+Cereais e pães|Farinha de arroz|363|1.3|85.5|0.3
+Cereais e pães|Farinha de centeio integral|336|12.5|73.3|1.8
+Cereais e pães|Farinha de mandioca torrada|365|1.2|89.2|0.3
+Cereais e pães|Fubá cru|353|7.2|78.3|1.9
+Cereais e pães|Salgadinho de milho|480|7.1|63.5|22.0
+Cereais e pães|Bolo de cenoura|340|5.0|52.0|12.5|A
+Cereais e pães|Bolo de coco|345|4.5|52.0|13.0|A
+Cereais e pães|Bolo de milho|311|4.8|48.0|11.0|A
+Cereais e pães|Pão de centeio|263|8.9|52.0|2.1|A
+Cereais e pães|Pastel de queijo frito|355|10.5|32.0|20.8|A
+Verduras e legumes|Abóbora moranga crua|40|1.7|8.8|0.5
+Verduras e legumes|Abóbora moranga cozida|29|0.4|7.0|0.0
+Verduras e legumes|Abóbora menina crua|14|0.6|3.3|0.1
+Verduras e legumes|Abobrinha italiana crua|19|1.1|4.3|0.2
+Verduras e legumes|Alface roxa crua|13|0.9|2.5|0.2
+Verduras e legumes|Berinjela crua|20|1.2|4.4|0.1
+Verduras e legumes|Cará cru|96|2.3|23.0|0.1
+Verduras e legumes|Cará cozido|78|1.5|18.9|0.1
+Verduras e legumes|Cebolinha crua|20|1.9|4.4|0.4
+Verduras e legumes|Chicória crua|14|1.1|2.9|0.1
+Verduras e legumes|Coentro cru|23|2.1|3.7|0.5
+Verduras e legumes|Couve refogada|90|1.7|8.7|6.6
+Verduras e legumes|Ervilha em vagem crua|88|7.5|14.2|0.5
+Verduras e legumes|Escarola crua|16|1.5|3.1|0.2
+Verduras e legumes|Jiló cru|27|1.4|6.2|0.2
+Verduras e legumes|Maxixe cru|14|1.4|2.9|0.1
+Verduras e legumes|Mostarda (folha) crua|18|1.5|2.7|0.4
+Verduras e legumes|Batata baroa crua|101|0.9|23.8|0.2
+Verduras e legumes|Palmito pupunha cru|29|2.5|5.5|0.4
+Verduras e legumes|Quiabo cozido|14|1.4|3.3|0.1
+Verduras e legumes|Salsa crua|33|3.3|5.7|0.6
+Verduras e legumes|Extrato de tomate|61|2.4|14.0|0.2
+Verduras e legumes|Molho de tomate industrializado|38|1.4|7.7|0.9
+Verduras e legumes|Vagem cozida|25|1.1|5.2|0.2
+Verduras e legumes|Mandioca frita|300|1.4|50.3|11.2
+Verduras e legumes|Alho-poró cru|32|1.4|7.3|0.3
+Verduras e legumes|Broto de alfafa cru|29|4.0|3.8|0.7
+Verduras e legumes|Azeitona verde em conserva|79|0.9|4.1|7.1
+Verduras e legumes|Cogumelo champignon cru|25|2.7|3.9|0.3
+Verduras e legumes|Abobrinha refogada|40|1.5|3.5|2.5|A
+Verduras e legumes|Brócolis refogado|56|2.5|4.5|3.0|A
+Verduras e legumes|Cenoura refogada|65|0.9|7.5|3.5|A
+Verduras e legumes|Berinjela refogada|70|0.9|5.0|5.0|A
+Verduras e legumes|Chuchu refogado|45|0.5|4.8|2.8|A
+Verduras e legumes|Repolho refogado|55|1.3|5.0|3.4|A
+Verduras e legumes|Espinafre refogado|62|3.0|3.0|4.2|A
+Verduras e legumes|Pimentão refogado|55|1.0|5.5|3.2|A
+Verduras e legumes|Cebola refogada|80|1.0|9.0|4.5|A
+Verduras e legumes|Vagem refogada|60|1.5|5.5|3.5|A
+Verduras e legumes|Quiabo refogado|70|1.8|5.5|4.5|A
+Frutas|Abiu cru|62|0.8|14.9|0.5
+Frutas|Atemoia crua|97|1.0|25.3|0.3
+Frutas|Banana-da-terra crua|128|1.4|33.7|0.2
+Frutas|Banana-d'água crua|70|1.0|18.0|0.1
+Frutas|Caju cru|43|1.0|10.3|0.3
+Frutas|Cajá-manga cru|46|0.8|11.4|0.2
+Frutas|Carambola crua|46|0.9|11.5|0.2
+Frutas|Ciriguela crua|76|1.4|18.9|0.4
+Frutas|Coco, polpa crua|406|3.7|10.4|42.0
+Frutas|Cupuaçu, polpa|49|1.2|10.4|1.0
+Frutas|Figo cru|41|1.0|10.2|0.2
+Frutas|Graviola crua|62|1.0|15.8|0.2
+Frutas|Jaca crua|88|1.4|22.5|0.3
+Frutas|Laranja-baía|45|1.0|11.5|0.1
+Frutas|Laranja-lima|46|1.1|11.5|0.1
+Frutas|Limão-tahiti cru|32|0.9|11.1|0.1
+Frutas|Manga Haden|64|0.4|16.7|0.3
+Frutas|Manga Espada|59|0.9|14.2|0.2
+Frutas|Tangerina Murcote|58|0.9|14.9|0.1
+Frutas|Tangerina Cravo|37|0.9|9.3|0.1
+Frutas|Maçã Argentina|63|0.2|16.6|0.4
+Frutas|Mangaba crua|43|0.7|10.5|0.3
+Frutas|Nêspera crua|43|0.4|11.5|0.2
+Frutas|Fruta-do-conde crua|97|1.4|24.0|0.4
+Frutas|Pitanga crua|38|0.9|9.3|0.2
+Frutas|Tamarindo cru|276|3.2|72.5|0.5
+Frutas|Umbu cru|37|0.8|9.4|0.4
+Frutas|Marmelo cru|56|0.3|15.9|0.1
+Frutas|Ameixa em calda|183|0.4|47.8|0.2
+Frutas|Uva passa|299|3.1|79.2|0.5
+Frutas|Acerola, polpa congelada|22|0.6|5.5|0.1|A
+Frutas|Polpa de caju congelada|43|0.8|10.5|0.2|A
+Frutas|Polpa de goiaba congelada|52|1.0|12.5|0.3|A
+Frutas|Polpa de manga congelada|50|0.4|12.6|0.1|A
+Frutas|Polpa de maracujá congelada|49|0.7|12.2|0.2|A
+Carnes e ovos|Acém, sem gordura, cru|144|20.8|0|6.1
+Carnes e ovos|Acém, sem gordura, cozido|215|34.0|0|8.8|A
+Carnes e ovos|Alcatra, sem gordura, crua|163|21.6|0|7.8
+Carnes e ovos|Contra-filé, sem gordura, grelhado|194|35.9|0|4.5
+Carnes e ovos|Filé mignon, sem gordura, cru|143|21.6|0|5.6
+Carnes e ovos|Patinho cru|133|21.7|0|4.5
+Carnes e ovos|Coxão mole cru|169|21.2|0|8.7
+Carnes e ovos|Coxão duro cru|148|21.5|0|5.7
+Carnes e ovos|Coxão duro cozido|217|31.9|0|8.7
+Carnes e ovos|Lagarto cru|135|20.5|0|5.4
+Carnes e ovos|Capa de filé crua|162|21.0|0|8.0|A
+Carnes e ovos|Paleta, sem gordura, crua|141|21.5|0|5.5|A
+Carnes e ovos|Paleta, sem gordura, cozida|194|29.8|0|7.5|A
+Carnes e ovos|Músculo cozido|194|31.2|0|6.7
+Carnes e ovos|Músculo cru|142|21.6|0|5.5
+Carnes e ovos|Maminha grelhada|153|30.7|0|2.9
+Carnes e ovos|Picanha, sem gordura, grelhada|238|31.9|0|11.5
+Carnes e ovos|Costela bovina assada|373|28.8|0|27.7
+Carnes e ovos|Cupim assado|330|28.6|0|23.0
+Carnes e ovos|Fígado bovino cru|125|20.7|0|4.7
+Carnes e ovos|Bisteca de porco grelhada|280|28.9|0|17.3
+Carnes e ovos|Costela de porco assada|402|28.1|0|31.9
+Carnes e ovos|Pernil de porco assado|262|32.1|0|13.8
+Carnes e ovos|Pernil de porco cru|186|20.1|0|11.1
+Carnes e ovos|Lombo de porco cru|176|20.1|0|10.2
+Carnes e ovos|Linguiça de porco grelhada|296|23.2|0|21.5
+Carnes e ovos|Presunto sem capa de gordura|94|14.3|1.1|3.5
+Carnes e ovos|Mortadela|269|12.0|5.8|21.2
+Carnes e ovos|Salame|398|25.8|2.9|31.2
+Carnes e ovos|Salsicha|257|12.0|2.7|22.0
+Carnes e ovos|Peito de frango cru|119|21.5|0|3.0
+Carnes e ovos|Peito de frango com pele cru|215|17.1|0|15.7
+Carnes e ovos|Coxa de frango sem pele crua|120|17.8|0|4.9
+Carnes e ovos|Coxa de frango com pele crua|161|16.4|0|9.8
+Carnes e ovos|Sobrecoxa de frango sem pele crua|163|17.8|0|9.8
+Carnes e ovos|Asa de frango com pele crua|213|17.4|0|15.2
+Carnes e ovos|Coração de frango cru|222|12.6|0.8|18.6
+Carnes e ovos|Ovo de codorna cru|177|13.7|0.8|12.7
+Carnes e ovos|Clara de ovo crua|48|10.9|0.7|0.1|A
+Pescados|Atum fresco cru|118|25.7|0|0.9
+Pescados|Bacalhau salgado cru|136|29.0|0|2.8
+Pescados|Corvina grelhada|123|22.9|0|2.9
+Pescados|Sardinha em conserva (óleo)|285|15.9|0|24.0
+Pescados|Camarão cozido|90|19.0|0|1.0
+Pescados|Salmão sem pele cru|170|19.3|0|9.7
+Pescados|Cação, posta, cozida|116|23.4|0|2.5
+Pescados|Cação, posta, crua|83|17.9|0|1.0
+Pescados|Badejo cru|105|20.5|0|2.5
+Pescados|Dourado cru|98|19.7|0|1.9
+Pescados|Pescada branca crua|111|16.3|0|4.7
+Pescados|Pintado cru|91|18.8|0|1.2
+Pescados|Sardinha crua|114|21.1|0|2.7
+Pescados|Tainha crua|114|18.9|0|4.0|A
+Pescados|Tucunaré cru|94|19.0|0|1.8|A
+Pescados|Truta crua|141|20.5|0|6.0|A
+Laticínios|Iogurte de morango|70|1.9|13.2|1.2
+Laticínios|Queijo cottage|98|11.1|3.4|4.3
+Laticínios|Queijo provolone|351|26.2|3.4|25.1
+Laticínios|Nata|338|1.5|3.2|35.0
+Laticínios|Queijo minas padrão|321|20.6|3.2|25.4
+Laticínios|Leite de vaca parcialmente desnatado|43|3.3|4.7|1.5
+Laticínios|Leite em pó desnatado|362|34.7|53.0|0.9
+Oleaginosas|Gergelim, semente|584|21.2|21.6|50.4
+Oleaginosas|Linhaça, semente|495|14.1|43.3|32.3
+Oleaginosas|Pinhão cozido|174|3.0|43.9|0.7
+Oleaginosas|Paçoca|487|16.0|52.4|23.7
+Oleaginosas|Noz crua|620|14.0|18.4|59.0|A
+Leguminosas|Feijão rajado cozido|77|5.0|13.5|0.5
+Leguminosas|Feijão mulatinho cozido|77|4.8|14.0|0.4
+Leguminosas|Feijão-fradinho cozido|78|5.1|13.0|0.6
+Leguminosas|Feijão-fradinho cru|339|24.0|61.0|1.3
+Leguminosas|Feijão rajado cru|327|17.3|61.2|1.2
+Leguminosas|Feijão branco cru|333|23.4|60.7|0.9
+Leguminosas|Extrato solúvel de soja|39|2.4|4.3|1.4
+Leguminosas|Tofu|64|6.6|2.0|3.5|A
+Óleos, doces e bebidas|Maionese|302|0.6|7.2|30.0
+Óleos, doces e bebidas|Melado|297|0.0|76.7|0.0
+Óleos, doces e bebidas|Rapadura|351|0.7|90.8|0.0
+Óleos, doces e bebidas|Açúcar mascavo|369|0.8|94.5|0.0
+Óleos, doces e bebidas|Achocolatado em pó|401|4.2|91.2|1.4
+Óleos, doces e bebidas|Catchup|98|1.2|25.4|0.3
+Óleos, doces e bebidas|Cerveja pilsen|41|0.6|3.3|0.0
+Óleos, doces e bebidas|Vinho tinto|85|0.2|2.6|0.0
+Óleos, doces e bebidas|Refrigerante tipo guaraná|39|0.0|9.7|0.0
+Óleos, doces e bebidas|Óleo de milho|884|0|0|100
+Óleos, doces e bebidas|Óleo de canola|884|0|0|100
+Óleos, doces e bebidas|Óleo de girassol|884|0|0|100
+Óleos, doces e bebidas|Azeite de dendê|884|0|0|100
+Óleos, doces e bebidas|Banha de porco|900|0|0|100
+Óleos, doces e bebidas|Leite de coco|166|1.0|2.2|18.4
+Óleos, doces e bebidas|Sorvete de creme|199|3.6|25.3|9.3
+Óleos, doces e bebidas|Chocolate branco|539|5.9|59.2|32.1|A
+Preparações|Lasanha à bolonhesa|150|8.5|15.0|6.0
+Preparações|Estrogonofe de carne|165|13.0|3.0|11.0
+Preparações|Pizza de muçarela|269|11.5|32.0|10.5
+Preparações|Coxinha de frango frita|276|9.0|31.0|12.5
+Preparações|Pastel de carne frito|289|10.0|31.0|13.5
+Preparações|Arroz carreteiro|130|7.0|15.0|4.5
+Preparações|Baião de dois|132|5.8|18.0|4.0
+Preparações|Bife à milanesa|270|20.0|12.0|15.0
+Preparações|Escondidinho de carne|148|8.0|14.0|6.8
+Preparações|Feijão tropeiro|150|7.5|12.0|8.0
+Preparações|Frango à passarinho|280|22.0|2.0|20.0
+Preparações|Moqueca de peixe|120|13.0|3.5|5.8
+Preparações|Panqueca de carne|190|9.0|20.0|8.0
+Preparações|Quibe assado|187|17.0|13.0|8.0
+Preparações|Risoto de frango|130|5.0|18.0|4.0
+Preparações|Salpicão de frango|160|8.0|10.0|9.0
+Preparações|Empada de frango|365|7.0|34.0|22.5
+Preparações|Esfiha de carne aberta|250|11.0|35.0|7.5`.trim().split("\n").map(l=>{const a=l.split("|");return[a[1],+a[2],+a[3],+a[4],+a[5],a[6]=="A"?"A":a[0]=="Preparações"?"C":"T",a[0]]});const ALL=Object.keys(DB).map(k=>DB[k].concat("Do cardápio")).concat(TX);const nm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const PE={"Pão francês":["1 pão francês",50],"Pão integral":["2 fatias",50],"Aveia em flocos":["3 col. sopa",30],"Cuscuz de milho cozido":["1 fatia",130],"Mandioca cozida":["3 pedaços",100],"Batata-doce cozida":["1 unidade pequena",100],"Ovo de galinha cozido":["1 ovo",50],"Azeite de oliva":["1 col. chá",4.5],"Suco de laranja natural":["1 copo",200],"Açúcar":["1 col. chá",4],"Iogurte natural desnatado":["1 pote",170],"Queijo ricota":["1 fatia grossa",40],"Semente de chia":["1 col. sopa",12],"Laranja":["1 unidade",150],"Banana-prata":["1 unidade",100],"Mamão papaia":["1/2 unidade",150],"Abacaxi":["2 fatias",150],"Pera":["1 unidade",130],"Tangerina":["1 unidade",100],"Morango cru":["10 unidades",150],"Peito de frango sem pele, grelhado":["1 filé",130],"Filé de peixe branco grelhado":["1 filé",150],"Tilápia grelhada":["1 filé",130],"Patinho grelhado":["1 bife",90],"Peito de frango sem pele, cozido":["1 porção",130],"Salmão sem pele, grelhado":["1 posta",100],"Queijo minas frescal":["1 fatia",40],"Arroz branco cozido":["3 col. sopa",75],"Arroz integral cozido":["3 col. sopa",80],"Batata inglesa cozida":["2 unidades pequenas",180],"Mandioquinha cozida":["1 porção",120],"Milho verde drenado":["4 col. sopa",100],"Macarrão de trigo, cru":["1 porção crua",26],"Inhame cozido":["1 porção",100],"Abóbora cabotiá cozida":["1 porção",180],"Feijão carioca cozido":["1 concha",100],"Feijão preto cozido":["1 concha",100],"Lentilha cozida":["1 concha",80],"Grão-de-bico cozido":["3 col. sopa",50],"Ervilha seca partida, crua":["1 porção crua",25],"Cebola e alho":["1 col. sopa",10],"Salada de alface e tomate":["1 prato raso",50],"Vinagrete sem óleo":["2 col. sopa",30],"Legumes cozidos (cenoura, brócolis, abobrinha)":["4 col. sopa",100],"Brócolis cozido":["3 ramos",100],"Abobrinha italiana cozida":["4 fatias",100],"Cenoura cozida":["1 unidade média",100],"Chuchu cozido":["1/2 unidade",100],"Beterraba cozida":["4 fatias",100],"Pão de queijo":["1 unidade",30],"Bolo simples":["1 fatia",60],"Omelete simples":["1 porção",110],"Feijoada":["1 prato fundo pequeno",200],"Estrogonofe de frango":["1 porção",150],"Macarrão ao molho de tomate":["1 prato",200],"Purê de batata":["3 col. sopa",150],"Canja de galinha":["1 prato fundo",350],"Sopa de legumes":["1 prato fundo",350],
+"Banana-nanica":["1 unidade",100],"Banana-maçã":["1 unidade",80],"Maçã Fuji com casca":["1 unidade",130],"Kiwi":["1 unidade",80],"Melancia":["1 fatia",200],"Melão":["1 fatia",150],"Uva Itália":["1 cacho pequeno",100],"Uva Rubi":["1 cacho pequeno",100],"Água de coco":["1 copo",200],"Laranja-pêra":["1 unidade",150],"Laranja-baía":["1 unidade",150],"Laranja-lima":["1 unidade",150],"Mamão formosa":["1 fatia",150],"Goiaba vermelha":["1 unidade",100],"Goiaba branca":["1 unidade",100],"Manga Tommy Atkins":["1/2 unidade",150],"Manga Palmer":["1/2 unidade",150],"Abacate":["4 col. sopa",100],"Ameixa crua":["1 unidade",50],"Caqui":["1 unidade",130],"Ovo cru":["1 ovo",50],"Ovo frito":["1 ovo",46],"Clara de ovo cozida":["1 clara",33],"Clara de ovo crua":["1 clara",33],"Gema de ovo cozida":["1 gema",17],"Ovo de codorna cru":["5 unidades",50],"Pão de forma tradicional":["2 fatias",50],"Pão de centeio":["2 fatias",50],"Café (infusão a 10%)":["1 xícara",50],"Manteiga com sal":["1 col. chá",5],"Margarina com sal":["1 col. chá",5],"Requeijão cremoso":["1 col. sopa",30],"Queijo parmesão":["1 col. sopa ralado",10],"Leite em pó integral":["2 col. sopa",30],"Leite em pó desnatado":["2 col. sopa",30],"Creme de leite":["1 col. sopa",15],"Leite condensado":["1 col. sopa",20],"Mel":["1 col. sopa",20],"Chocolate ao leite":["2 quadradinhos",25],"Chocolate meio amargo":["2 quadradinhos",25],"Chocolate branco":["2 quadradinhos",25],"Goiabada":["1 fatia",30],"Doce de leite":["1 col. sopa",20],"Refrigerante tipo cola":["1 copo",200],"Amendoim torrado salgado":["1 punhado",30],"Amendoim cru":["1 punhado",30],"Castanha-do-pará":["2 unidades",10],"Castanha-de-caju torrada":["10 unidades",30],"Batata frita":["1 porção pequena",80],"Macarrão de trigo cozido":["4 col. sopa",100],"Arroz parboilizado cozido":["3 col. sopa",75],"Pipoca com óleo de soja":["1 xícara",20],"Cereal matinal de milho":["1 xícara",30],"Macarrão instantâneo":["1 pacote",80],"Salgadinho de milho":["1 pacote pequeno",30],"Sardinha em conserva (óleo)":["1/2 lata",60],"Salsicha":["1 unidade",50],"Linguiça de porco grelhada":["1 gomo",60],"Pizza de muçarela":["1 fatia",100],"Coxinha de frango frita":["1 unidade",60],"Pastel de carne frito":["1 unidade",70],"Pastel de queijo frito":["1 unidade",70],"Empada de frango":["1 unidade",50],"Esfiha de carne aberta":["1 unidade",80],"Lasanha à bolonhesa":["1 porção",200],"Bife à milanesa":["1 bife",100],"Paçoca":["1 unidade",20],"Sorvete de creme":["1 bola",60],"Achocolatado em pó":["2 col. sopa",20],"Maionese":["1 col. sopa",15],"Catchup":["1 col. sopa",15],"Leite de coco":["1/2 copo",100],"Tofu":["1 fatia",80],"Coco, polpa crua":["1 pedaço",30],"Tamarindo cru":["1 porção",30],"Uva passa":["1 col. sopa",15],"Ameixa em calda":["3 unidades",60],"Extrato solúvel de soja":["1 copo",200],"Cerveja pilsen":["1 copo",200],"Vinho tinto":["1 taça",100],"Refrigerante tipo guaraná":["1 copo",200]};
+function PT(d){if(d[7]>0)return[fm(d[7])+" g (porção usual)",d[7]];const n=d[0],g=d[6],f=(l,x)=>[l+" ("+fm(x)+" g)",x];if(PE[n])return f(PE[n][0],PE[n][1]);
+if(/^(Farinha|Amido|Fubá|Polvilho)/.test(n))return f("1 col. sopa",15);if(/^(Óleo|Azeite|Banha)/.test(n))return f("1 col. sopa",8);if(/^Biscoito/.test(n))return f("5 unidades",30);if(/^Bolo/.test(n))return f("1 fatia",60);
+if(/^Queijo/.test(n))return f("2 fatias",40);if(/^Leite/.test(n))return f("1 copo",200);if(/^Iogurte/.test(n))return f("1 pote",170);if(/^(Presunto|Mortadela|Salame)/.test(n))return f("2 fatias",30);
+if(/^(Açúcar|Melado|Rapadura)/.test(n))return f("1 col. sopa",15);if(/^Polpa|polpa/.test(n))return f("1 copo",100);
+if(g=="Frutas")return f("1 porção",100);
+if(g=="Verduras e legumes")return /^(Alface|Agrião|Rúcula|Almeirão|Escarola|Chicória|Acelga|Espinafre|Couve|Mostarda|Salsa|Coentro|Cebolinha|Broto)/.test(n)?f("1 porção",30):/^(Extrato|Molho|Catchup)/.test(n)?f("1 col. sopa",20):f("1 porção",80);
+if(g=="Carnes e ovos")return f("1 porção",100);if(g=="Pescados")return f(/^Camarão/.test(n)?"1 porção":"1 filé",100);
+if(g=="Oleaginosas")return /^(Gergelim|Linhaça)/.test(n)?f("1 col. sopa",10):f("1 punhado",30);
+if(g=="Leguminosas")return /cruo?a?$/.test(n)?f("1 porção crua",50):f("1 concha",100);
+if(g=="Preparações")return f("1 porção",150);if(g=="Óleos, doces e bebidas")return f("1 col. sopa",15);
+if(g=="Cereais e pães")return /cruo?a?$/.test(n)?f("1 porção crua",50):f("1 porção",50);return f("1 porção",100)}
+function tbl(){const f=$("#q").value,g=$("#qg").value;$("#tb").innerHTML=ALL.filter(d=>(!g||d[6]==g)&&nm(d[0]+" "+d[6]).includes(nm(f))).map(d=>{const pt=PT(d),k=$("#qm").value=="c"?1:pt[1]/100,est=4*d[2]+4*d[3]+9*d[4],good=Math.abs(est-d[1])<=Math.max(12,.15*d[1]);return`<tr><td>${d[0]}<br><span class="tag">${d[6]}</span></td><td class="tag">${$("#qm").value=="c"?"100 g":pt[0]}</td><td>${fm(d[1]*k)}</td><td>${fm(d[2]*k,1)}</td><td>${fm(d[3]*k,1)}</td><td>${fm(d[4]*k,1)}</td><td class="tag">${d[5]=="T"?"TACO":d[5]=="A"?"Aprox.":"Compl."}</td><td class="${good?"ok":""}">${good?"✓":"~"}</td>`}).join("")}
+ALL.forEach(d=>{if(Math.abs(4*d[2]+4*d[3]+9*d[4]-d[1])<=Math.max(12,.15*d[1]))ok++});
+$("#chk").textContent=ok+" de "+ALL.length+" alimentos ficaram coerentes (✓ na tabela).";
+$("#qg").innerHTML='<option value="">Todos os grupos</option>'+[...new Set(ALL.map(d=>d[6]))].map(g=>`<option>${g}</option>`).join("");$("#q").oninput=tbl;$("#qg").onchange=tbl;$("#qm").onchange=tbl;tbl();$("#cnt").textContent=ALL.length;
+let mn=0,mx=0;M.forEach(m=>{const pi=m.g.findIndex(g=>g.pr),v=g=>g[1].map(o=>oT(o)[0]);
+ const base=sk=>{let a=0,b=0;m.g.forEach(g=>{if(g.pr)return;const em=g[1].findIndex(o=>!o[1].length);if(sk&&em>=0)return;let x=v(g);if(em>=0&&!/opcional/.test(g[0]))x=x.filter((_,q)=>q!=em);a+=Math.min(...x);b+=Math.max(...x)});return[a,b]};
+ let [lo,hi]=base(false);
+ if(pi>=0){const [a1,b1]=base(true);v(m.g[pi]).forEach((k,q)=>{if(q==0)return;lo=Math.min(lo,k+a1);hi=Math.max(hi,k+b1)})}
+ mn+=lo;mx+=hi});
+$("#mn").textContent=fm(mn);$("#mx").textContent=fm(mx);
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}queue()}};
+META=Math.max(800,Math.min(4000,+LS.get("cmp_meta",1500)||1500));let cus=LS.get("cmp_custom",[]),log=LS.get("cmp_log",{}),cur=null,rl=[],sv=true;
+try{localStorage.setItem("cmp_t","1");localStorage.removeItem("cmp_t")}catch(e){sv=false}
+$("#dnote").textContent=sv?"Salva neste aparelho e, com a conta do Claude, também na nuvem.":"Este navegador não guarda dados: use o backup.";
+const MN=["Café da manhã","Almoço","Lanche da tarde","Jantar","Entre refeições"];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const td=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+$("#dd").value=td();$("#dm").innerHTML=MN.map((m,i)=>`<option value="${i}">${m}</option>`).join("");{const h=new Date().getHours();$("#dm").value=h<10?0:h<15?1:h<18?2:h<22?3:4}
+function sr(){const q=nm($("#ds").value.trim()),r=$("#dr");if(!q){r.innerHTML="";rl=[];return}rl=ALL.concat(cus).filter(d=>nm(d[0]+" "+d[6]).includes(q)).slice(0,12);
+r.innerHTML=rl.length?rl.map((d,i)=>`<button class="op" data-pick="${i}"><span>${esc(d[0])}</span><span class="k">${fm(d[1]*PT(d)[1]/100)} kcal</span><span class="tag">${esc(PT(d)[0])}</span></button>`).join(""):`<p class="sub">Não achei. Cadastre abaixo, em “Não achou o alimento?”.</p>`}
+function pv(){if(!cur)return null;const g=+$("#dg").value||0,m=[cur[1],cur[2],cur[3],cur[4]].map(v=>v*g/100);$("#dp").textContent="Porção usual: "+PT(cur)[0]+" · "+fm(m[0])+" kcal · P "+fm(m[1],1)+" · C "+fm(m[2],1)+" · G "+fm(m[3],1);return m}
+function rd(){const d=$("#dd").value||td(),E=log[d]||[];let T=[0,0,0,0],h="";
+MN.forEach((mn,mi)=>{const L=E.map((e,i)=>[e,i]).filter(([e])=>e.m==mi);if(!L.length)return;let s=0;h+=`<b>${mn}</b>`+L.map(([e,i])=>{s+=e.k;T=[T[0]+e.k,T[1]+e.p,T[2]+e.c,T[3]+e.f];return`<div class="row"><span>${esc(e.n)} · ${fm(e.g)} g</span><b>${fm(e.k)} kcal <button class="x" data-del="${i}" aria-label="Remover">✕</button></b><em>P ${fm(e.p,1)} · C ${fm(e.c,1)} · G ${fm(e.f,1)}</em></div>`}).join("")+`<div class="tot" style="margin:6px 0 14px"><span>Subtotal</span><span>${fm(s)} kcal</span></div>`});
+$("#dl").innerHTML=(h||`<p class="sub">Nada registrado neste dia ainda.</p>`)+`<div class="tot"><span>Total do dia</span><span>${fm(T[0])} kcal · P ${fm(T[1],1)} · C ${fm(T[2],1)} · G ${fm(T[3],1)}</span></div><div class="trk"><div class="fill${T[0]>META?" over":""}" data-w="${Math.min(100,T[0]/META*100)}%"></div></div><p class="sub" style="margin-top:8px">${T[0]>META?"Passou "+fm(T[0]-META)+" kcal da meta de "+fm(META)+" kcal.":"Ainda cabem "+fm(META-T[0])+" kcal até a meta de "+fm(META)+" kcal."}</p>`;
+const f=$("#dl .fill");requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.width=f.dataset.w}))}
+function rc2(){$("#ml").innerHTML=cus.length?cus.map((d,i)=>`<div class="row"><span>${esc(d[0])}</span><b>${fm(d[1])} kcal/100 g <button class="x" data-cd="${i}" aria-label="Excluir">✕</button></b><em>P ${fm(d[2],1)} · C ${fm(d[3],1)} · G ${fm(d[4],1)}${d[7]?" · porção usual "+fm(d[7])+" g":""}</em></div>`).join(""):`<p class="sub">Nenhum alimento cadastrado ainda.</p>`}
+$("#ds").oninput=sr;$("#dg").oninput=pv;$("#dd").onchange=rd;
+$("#dr").onclick=e=>{const b=e.target.closest("[data-pick]");if(!b)return;cur=rl[+b.dataset.pick];$("#dn").textContent=cur[0];$("#dg").value=cur[7]||PT(cur)[1];$("#dsel").hidden=false;pv();$("#dr").innerHTML=""};
+$("#da").onclick=()=>{if(!cur)return;const g=+$("#dg").value;if(!(g>0))return;const m=pv(),d=$("#dd").value||td();(log[d]=log[d]||[]).push({m:+$("#dm").value,n:cur[0],g,k:m[0],p:m[1],c:m[2],f:m[3]});LS.set("cmp_log",log);cur=null;$("#dsel").hidden=true;$("#ds").value="";$("#dr").innerHTML="";rd()};
+$("#dl").onclick=e=>{const b=e.target.closest("[data-del]");if(!b)return;const d=$("#dd").value||td();log[d].splice(+b.dataset.del,1);if(!log[d].length)delete log[d];LS.set("cmp_log",log);rd()};
+$("#ml").onclick=e=>{const b=e.target.closest("[data-cd]");if(!b)return;cus.splice(+b.dataset.cd,1);LS.set("cmp_custom",cus);rc2();sr()};
+$("#nsv").onclick=()=>{const n=$("#nn").value.trim(),ms=t=>{$("#nm2").textContent=t},per=$("#nt").value=="1",pw=+$("#ng").value;if(!n||$("#nk").value==="")return ms("Preencha o nome e as kcal.");if(per&&!(pw>0))return ms("Informe o peso da porção em gramas.");const k=per?100/pw:1,v=id=>(+$(id).value||0)*k;cus.push([n,v("#nk"),v("#np"),v("#nc"),v("#nf"),"U","Meus alimentos",per?pw:0]);LS.set("cmp_custom",cus);["#nn","#nk","#np","#nc","#nf","#ng"].forEach(i=>$(i).value="");ms("Salvo em Meus alimentos: já aparece na busca do diário.");rc2()};
+rd();rc2();
+let cdb=null,cuid=null,shadow={},cshadow="",pt;
+const st=t=>{$("#dsync").textContent=t},bm=t=>{$("#bmsg").textContent=t};
+st("💾 Salvo neste aparelho.");
+async function push(){if(!cdb)return;try{st("☁️ Salvando…");const col=cdb.collection("data/users/"+cuid);
+for(const d of Object.keys(log)){const j=JSON.stringify(log[d]);if(shadow[d]!==j){await col.doc("log-"+d).set({j});shadow[d]=j}}
+for(const d of Object.keys(shadow))if(!log[d]){await col.doc("log-"+d).delete();delete shadow[d]}
+const cj=JSON.stringify(cus);if(cj!==cshadow){await col.doc("custom").set({j:cj});cshadow=cj}
+st("☁️ Salvo na sua conta e neste aparelho.")}catch(e){st("⚠️ Não consegui salvar na conta. Está salvo neste aparelho: baixe o backup por segurança.")}}
+function queue(){clearTimeout(pt);pt=setTimeout(push,400)}
+async function pull(){try{if(typeof claude=="undefined")return;const u=await claude.use("user"),db=await claude.use("db");
+if(!u||!db)return 0;
+cuid=await u.id();cdb=db;const snap=await db.collection("data/users/"+cuid).get();
+snap.docs.forEach(s=>{const x=s.data()||{};try{if(s.id=="custom"){cshadow=x.j;JSON.parse(x.j).forEach(it=>{if(!cus.some(o=>o[0]==it[0]&&Math.round(o[1])==Math.round(it[1])))cus.push(it)})}else if(s.id.indexOf("log-")==0){const d=s.id.slice(4);log[d]=JSON.parse(x.j);shadow[d]=x.j}}catch(e){}});
+LS.set("cmp_log",log);LS.set("cmp_custom",cus);rd();rc2()}catch(e){st("💾 Salvo só neste aparelho. Baixe o backup de vez em quando.")}}
+function imp(txt){try{const o=JSON.parse(txt);if(!o||typeof o!="object")throw 0;(o.custom||[]).forEach(it=>{if(Array.isArray(it)&&!cus.some(x=>x[0]==it[0]&&Math.round(x[1])==Math.round(it[1])))cus.push(it)});
+Object.keys(o.log||{}).forEach(d=>{if(Array.isArray(o.log[d])){const c=log[d]||[];o.log[d].forEach(e=>{if(!c.some(x=>JSON.stringify(x)==JSON.stringify(e)))c.push(e)});log[d]=c}});
+LS.set("cmp_log",log);LS.set("cmp_custom",cus);rd();rc2();bm("Backup restaurado.")}catch(e){bm("Arquivo ou texto inválido.")}}
+$("#bkp").onclick=async()=>{try{const dl=typeof claude=="undefined"?null:await claude.use("downloads");if(!dl)return bm("Salvar arquivo não está disponível aqui. Use o backup em texto.");await dl.save({filename:"comidinhas-backup-"+td()+".json",data:JSON.stringify({v:1,custom:cus,log})});bm("Backup salvo.")}catch(e){bm(e&&e.code=="declined"?"Cancelado.":"Não consegui salvar o arquivo. Use o backup em texto.")}};
+$("#bfile").onchange=async e=>{const f=e.target.files[0];if(f)imp(await f.text());e.target.value=""};
+$("#bgen").onclick=()=>{$("#btx").value=JSON.stringify({v:1,custom:cus,log});$("#btx").select();bm("Copie o texto e guarde onde quiser (notas, WhatsApp).")};
+$("#brest").onclick=()=>imp($("#btx").value);
+let rcl=[];
+function pk(d){cur=d;$("#dn").textContent=d[0];$("#dg").value=d[7]||PT(d)[1];$("#dsel").hidden=false;pv();$("#dr").innerHTML=""}
+function rk(){const seen=[];for(const d of Object.keys(log).sort().reverse()){for(const e of log[d].slice().reverse()){if(!seen.includes(e.n))seen.push(e.n);if(seen.length>=8)break}if(seen.length>=8)break}rcl=seen;
+$("#rec").innerHTML=seen.length?`<span class="sub" style="width:100%;margin:0">Recentes:</span>`+seen.map((n,i)=>`<button class="chip" data-r="${i}">${esc(n)}</button>`).join(""):""}
+$("#rec").onclick=e=>{const b=e.target.closest("[data-r]");if(!b)return;const d=ALL.concat(cus).find(x=>x[0]==rcl[+b.dataset.r]);if(d)pk(d)};
+function wk(){const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");days.push([(log[k]||[]).reduce((s,e)=>s+e.k,0),["D","S","T","Q","Q","S","S"][d.getDay()]])}
+const reg=days.filter(x=>x[0]>0),avg=reg.length?reg.reduce((s,x)=>s+x[0],0)/reg.length:0;
+$("#wk").innerHTML=`<div style="display:flex;align-items:flex-end;gap:6px;height:96px;margin-top:8px">`+days.map(([v,l])=>`<div style="flex:1;text-align:center;font-size:11px;color:var(--mut)" title="${fm(v)} kcal"><div style="height:${Math.min(70,v/META*70)}px;border-radius:6px 6px 0 0;background:${v>META?"#e5484d":"linear-gradient(var(--acc2),var(--acc))"};margin:0 auto;width:70%"></div>${l}</div>`).join("")+`</div><p class="sub">${reg.length?"Média dos dias registrados: "+fm(avg)+" kcal":"Registre alguns dias para ver a média da semana."}</p>`}
+const _rd=rd;rd=function(){_rd();rk();wk()};rk();wk();
+$("#ptd").onclick=()=>{const d=$("#dd").value||td(),L=log[d]=log[d]||[];let n=0;const put=(m,k,gr)=>{const v=mac(k,gr);L.push({m,n:DB[k][0],g:gr,k:v[0],p:v[1],c:v[2],f:v[3]});n++};
+M.forEach((mm,i)=>mm.g.forEach((g,j)=>g[1][sel[i][j]][1].forEach(([k,gr])=>put(i,k,gr))));if(xi>=0)EX[xi][1].forEach(([k,gr])=>put(4,k,gr));
+LS.set("cmp_log",log);rd();$("#pmsg").textContent=n+" itens adicionados ao diário de "+d.split("-").reverse().join("/")+"."};
+function txt(){let t="Comidinhas da minha princesa: cardápio",tot=0;M.forEach((m,i)=>{const it=m.g.map((g,j)=>g[1][sel[i][j]]).filter(o=>o[1].length),k=mealT(i)[0];tot+=k;t+="\n\n"+m.e+" "+m.n+" ("+fm(k)+" kcal)\n"+it.map(o=>"• "+o[0]).join("\n")});if(xi>=0){t+="\n\n➕ Extra: "+EX[xi][0];tot+=oT([0,EX[xi][1]])[0]}return t+"\n\nTotal: "+fm(tot)+" kcal (meta "+fm(META)+")"}
+$("#cpy").onclick=async()=>{const t=txt();let ok=false;try{await navigator.clipboard.writeText(t);ok=true}catch(e){try{const a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();ok=document.execCommand("copy");a.remove()}catch(e2){}}$("#pmsg").textContent=ok?"Cardápio copiado. É só colar onde quiser.":"Não consegui copiar neste aparelho. Use o botão do diário."};
+$("#meta").value=META;
+$("#meta").onchange=()=>{const v=Math.round(+$("#meta").value);if(v>=800&&v<=4000){META=v;LS.set("cmp_meta",META)}$("#meta").value=META;render();rd()};
+function wr(){const w=LS.get("cmp_water",{});$("#wv").textContent=w[td()]||0}
+function wc(n){const w=LS.get("cmp_water",{}),d=td();w[d]=Math.max(0,(w[d]||0)+n);LS.set("cmp_water",w);wr()}
+$("#wp").onclick=()=>wc(1);$("#wm").onclick=()=>wc(-1);wr();
+$("#rnd").onclick=()=>{let ok=null;for(let t=0;t<800&&!ok;t++){const s=M.map(m=>{const pi=m.g.findIndex(g=>g.pr),k=pi>=0&&Math.random()<.3?1+Math.floor(Math.random()*(m.g[pi][1].length-1)):0;return m.g.map(g=>{const em=g[1].findIndex(o=>!o[1].length);if(g.pr)return k;if(k>0)return em>=0?em:Math.floor(Math.random()*g[1].length);const c=g[1].map((_,q)=>q).filter(q=>g[1][q][1].length||/opcional/.test(g[0]));return c[Math.floor(Math.random()*c.length)]})});let kc=0;s.forEach((r,i)=>r.forEach((v,j)=>{kc+=oT(M[i].g[j][1][v])[0]}));if(kc<=META&&kc>=META*.7)ok=s}
+if(ok){ok.forEach((r,i)=>r.forEach((v,j)=>{sel[i][j]=v}));xi=-1;render();$("#rmsg").textContent="Cardápio novo montado. Troque o que quiser nas abas."}else $("#rmsg").textContent="Não achei uma combinação perto da meta. Tente de novo."};
+pull();
+render();
+const io="IntersectionObserver"in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.01}):null;
+$$(".rv").forEach(el=>io?io.observe(el):el.classList.add("in"));
+
+const APP_V="1.1.0",CF0={nome:"Comidinhas da minha princesa",emo:"🍓",cor:"#e8557f",tema:"auto"},TG=["📝 Recado","🍽️ Comi diferente","🔁 Troca","⭐ Gostei"],CORES=["#e8557f","#a855f7","#4f8cff","#2fbf8f","#f5a524","#ef4444"];
+let zc=Object.assign({},CF0,LS.get("cmp_cfg",{})),zm=LS.get("cmp_mural",[]),ztg=0;
+function zap(){const r=document.documentElement;r.style.setProperty("--acc",zc.cor);r.style.setProperty("--acc2","color-mix(in srgb,"+zc.cor+" 62%,#fff)");
+if(zc.tema=="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",zc.tema);
+$("#zhn").textContent=zc.nome;$("#zhe").textContent=zc.emo;document.title=zc.nome;$("#zn").value=zc.nome;$("#ze").value=zc.emo;$("#zt").value=zc.tema;
+$("#zsw").innerHTML=CORES.map(c=>`<button class="sw" type="button" data-c="${c}" style="background:${c}" aria-label="Cor ${c}"></button>`).join("")+`<input type="color" id="zcc" value="${zc.cor}" style="width:44px;height:34px;padding:0;margin:0">`}
+function zsv(){LS.set("cmp_cfg",zc)}
+$("#zn").oninput=e=>{zc.nome=e.target.value||CF0.nome;$("#zhn").textContent=zc.nome;document.title=zc.nome;zsv()};
+$("#ze").oninput=e=>{zc.emo=e.target.value||CF0.emo;$("#zhe").textContent=zc.emo;zsv()};
+$("#zt").onchange=e=>{zc.tema=e.target.value;zap();zsv()};
+$("#zsw").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;zc.cor=b.dataset.c;zap();zsv()};
+$("#zsw").oninput=e=>{if(e.target.id=="zcc"){zc.cor=e.target.value;document.documentElement.style.setProperty("--acc",zc.cor);document.documentElement.style.setProperty("--acc2","color-mix(in srgb,"+zc.cor+" 62%,#fff)");zsv()}};
+function zrm(){$("#ztags").innerHTML=TG.map((t,i)=>`<button class="chip" type="button" data-t="${i}" style="${i==ztg?"border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))":""}">${t}</button>`).join("");
+$("#zml").innerHTML=zm.length?zm.slice().reverse().map(n=>`<div class="nt"><small>${TG[n.g]||""} · ${new Date(n.t).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})} <button class="x" data-zd="${n.id}" aria-label="Apagar">✕</button></small><div>${esc(n.x).replace(/\n/g,"<br>")}</div></div>`).join(""):`<p class="sub">Mural vazio por enquanto.</p>`}
+$("#ztags").onclick=e=>{const b=e.target.closest("[data-t]");if(b){ztg=+b.dataset.t;zrm()}};
+$("#zadd").onclick=()=>{const x=$("#ztx").value.trim();if(!x)return;zm.push({id:Date.now(),t:new Date().toISOString(),g:ztg,x});LS.set("cmp_mural",zm);$("#ztx").value="";zrm()};
+$("#zml").onclick=e=>{const b=e.target.closest("[data-zd]");if(!b)return;zm=zm.filter(n=>n.id!=b.dataset.zd);LS.set("cmp_mural",zm);zrm()};
+const zdb=()=>new Promise((o,n)=>{const r=indexedDB.open("cmp",1);r.onupgradeneeded=()=>r.result.createObjectStore("k");r.onsuccess=()=>o(r.result);r.onerror=n});
+async function zset(k,v){try{(await zdb()).transaction("k","readwrite").objectStore("k").put(v,k)}catch(e){}}
+async function zget(k){try{const d=await zdb();return await new Promise(o=>{const q=d.transaction("k").objectStore("k").get(k);q.onsuccess=()=>o(q.result);q.onerror=()=>o()})}catch(e){}}
+const _ls=LS.set;LS.set=(k,v)=>{_ls(k,v);zset(k,v)};
+zap();zrm();$("#zv").textContent="Versão "+APP_V;
+(async()=>{try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+const L=await zget("cmp_log"),C=await zget("cmp_custom"),U=await zget("cmp_mural"),G=await zget("cmp_cfg");let ch=0;
+if(L&&!Object.keys(log).length){log=L;ch=1}if(C&&!cus.length){C.forEach(i=>cus.push(i));ch=1}if(U&&!zm.length){zm=U;ch=1}if(G&&!localStorage.getItem("cmp_cfg")){zc=Object.assign({},CF0,G);ch=1}
+if(ch){LS.set("cmp_log",log);LS.set("cmp_custom",cus);LS.set("cmp_mural",zm);LS.set("cmp_cfg",zc);rd();rc2();zrm();zap()}
+else{zset("cmp_log",log);zset("cmp_custom",cus);zset("cmp_mural",zm);zset("cmp_cfg",zc)}})();
+st("💾 Salvo neste aparelho (cópia dupla). Baixe um backup de vez em quando.");
+let zsw=null,zgo=0;
+if("serviceWorker"in navigator&&location.protocol.indexOf("http")==0){navigator.serviceWorker.register("sw.js").then(r=>{zsw=r;const k=()=>{if(r.waiting)$("#upd").hidden=false};k();
+r.addEventListener("updatefound",()=>{const n=r.installing;n&&n.addEventListener("statechange",()=>{if(n.state=="installed"&&navigator.serviceWorker.controller)k()})});setInterval(()=>r.update(),36e5)}).catch(()=>{});
+navigator.serviceWorker.addEventListener("controllerchange",()=>{if(zgo)location.reload()})}
+$("#updgo").onclick=()=>{zgo=1;zsw&&zsw.waiting&&zsw.waiting.postMessage("skip")};
+$("#zck").onclick=async()=>{const m=$("#zum");if(!zsw)return m.textContent="Atualização automática só funciona no app aberto pelo link/instalado.";m.textContent="Verificando…";try{await zsw.update()}catch(e){return m.textContent="Sem internet agora."}setTimeout(()=>{m.textContent=zsw.waiting||zsw.installing?"Nova versão encontrada!":"Você já está na versão mais recente."},1500)};
+</script><div id="upd" hidden><span>✨ Nova versão disponível</span><button class="btn" id="updgo" type="button">Atualizar</button></div></body></html>
