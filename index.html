@@ -581,7 +581,7 @@ b=ev.target.closest("[data-ef]");if(b&&EDS){const en=log[EDS.d][EDS.i];sc(en,(en
 b=ev.target.closest("[data-es]");if(b&&EDS){const en=log[EDS.d][EDS.i],g=+$("#eg").value;if(g>0){sc(en,g);LS.set("cmp_log",log);EDS=null;rd()}}});
 $("#dfr").onclick=ev=>{const b=ev.target.closest("[data-fr]");if(!b||!cur)return;$("#dg").value=Math.round((cur[7]||100)*+b.dataset.fr*10)/10;pv()};
 $("#dfs").onclick=()=>{if(!cur)return;const g=+$("#dg").value;if(!(g>0))return;const n=cur[0]+" ("+fm(g)+" g)";if(!cus.some(o=>o[0]==n)){cus.push([n,cur[1],cur[2],cur[3],cur[4],"U","Meus alimentos",g]);LS.set("cmp_custom",cus);rc2()}$("#dfm").textContent="Salvo em Meus alimentos: "+n+"."};
-const APP_V="1.2.0",CF0={nome:"Comidinhas da minha princesa",emo:"🍓",cor:"#e8557f",tema:"auto"},TG=["📝 Recado","🍽️ Comi diferente","🔁 Troca","⭐ Gostei"],CORES=["#e8557f","#a855f7","#4f8cff","#2fbf8f","#f5a524","#ef4444"];
+const APP_V="1.3.0",CF0={nome:"Comidinhas da minha princesa",emo:"🍓",cor:"#e8557f",tema:"auto"},TG=["📝 Recado","🍽️ Comi diferente","🔁 Troca","⭐ Gostei"],CORES=["#e8557f","#a855f7","#4f8cff","#2fbf8f","#f5a524","#ef4444"];
 let zc=Object.assign({},CF0,LS.get("cmp_cfg",{})),zm=LS.get("cmp_mural",[]),ztg=0;
 function zap(){const r=document.documentElement;r.style.setProperty("--acc",zc.cor);r.style.setProperty("--acc2","color-mix(in srgb,"+zc.cor+" 62%,#fff)");
 if(zc.tema=="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",zc.tema);
@@ -615,4 +615,9 @@ r.addEventListener("updatefound",()=>{const n=r.installing;n&&n.addEventListener
 navigator.serviceWorker.addEventListener("controllerchange",()=>{if(zgo)location.reload()})}
 $("#updgo").onclick=()=>{zgo=1;zsw&&zsw.waiting&&zsw.waiting.postMessage("skip")};
 $("#zck").onclick=async()=>{const m=$("#zum");if(!zsw)return m.textContent="Atualização automática só funciona no app aberto pelo link/instalado.";m.textContent="Verificando…";try{await zsw.update()}catch(e){return m.textContent="Sem internet agora."}setTimeout(()=>{m.textContent=zsw.waiting||zsw.installing?"Nova versão encontrada!":"Você já está na versão mais recente."},1500)};
-</script><div id="upd" hidden><span>✨ Nova versão disponível</span><button class="btn" id="updgo" type="button">Atualizar</button></div></body></html>
+async function zlimp(){try{const k=await caches.keys();await Promise.all(k.map(x=>caches.delete(x)))}catch(e){}try{const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}catch(e){}location.replace(location.pathname+"?u="+Date.now())}
+async function zver(){try{const t=await(await fetch("index.html?v="+Date.now(),{cache:"no-store"})).text(),m=t.match(/APP_V="([^"]+)"/);if(m&&m[1]!=APP_V){$("#upd").hidden=false;$("#updt").textContent="✨ Nova versão "+m[1]+" disponível";return 1}}catch(e){return-1}return 0}
+$("#updgo").onclick=()=>{$("#updgo").textContent="Atualizando…";zlimp()};
+$("#zck").onclick=async()=>{const m=$("#zum");m.textContent="Verificando…";const r=await zver();m.textContent=r==1?"Nova versão encontrada! Toque em Atualizar, lá embaixo.":r==-1?"Sem internet agora.":"Você já está na versão mais recente."};
+zver();setInterval(zver,18e5);
+</script><div id="upd" hidden><span id="updt">✨ Nova versão disponível</span><button class="btn" id="updgo" type="button">Atualizar</button></div></body></html>
