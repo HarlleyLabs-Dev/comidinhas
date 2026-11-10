@@ -1,6 +1,6 @@
 {
-  "versionCode": 8,
-  "versionName": "0.9",
-  "apkUrl": "https://github.com/HarlleyLabs-Dev/comidinhas/releases/download/v0.9/Comidinhas-debug.apk",
-  "notas": "Mural por refeição: fixe o café, o almoço etc. na hora, sem esperar o fim do dia. Calculadora inteligente: converte gramas em unidades e vice-versa."
+  "versionCode": 9,
+  "versionName": "1.0",
+  "apkUrl": "https://github.com/HarlleyLabs-Dev/comidinhas/releases/download/v1.0/Comidinhas-debug.apk",
+  "notas": "Em Mais > Sobre agora aparece a versão real do app, o número da compilação e quando foi instalada."
 }
