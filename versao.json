@@ -1,6 +1,6 @@
 {
-  "versionCode": 7,
-  "versionName": "0.8",
-  "apkUrl": "https://github.com/HarlleyLabs-Dev/comidinhas/releases/download/v0.8/Comidinhas-debug.apk",
-  "notas": "Animações melhoradas em todo o app (gráficos sobem e descem) e 35 sucos novos, com copos de 200 a 500 ml."
+  "versionCode": 8,
+  "versionName": "0.9",
+  "apkUrl": "https://github.com/HarlleyLabs-Dev/comidinhas/releases/download/v0.9/Comidinhas-debug.apk",
+  "notas": "Mural por refeição: fixe o café, o almoço etc. na hora, sem esperar o fim do dia. Calculadora inteligente: converte gramas em unidades e vice-versa."
 }
